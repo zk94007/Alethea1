@@ -18,6 +18,7 @@ import {
 import history from "../../routes/history";
 
 function* handleRequestText2Speech(action) {
+    console.log(action);
     yield put({type: APP_WAITING});
     try {
         const {body} = action;
@@ -103,8 +104,8 @@ function* handleRequestGetStatus(action) {
 }
 
 function* handleSelectVideoId(action) {
-    const {id} = action;
-    yield put({type: SET_VIDEO_ID, id});
+    const {videoKey, voiceId} = action;
+    yield put({type: SET_VIDEO_ID, videoKey, voiceId});
 }
 
 function* handleLoginRequest(action) {

@@ -1,7 +1,7 @@
 import React from "react";
 import './styles.scss';
 
-export default function InventoryItem({index, isActive, src, name, onClick, image}) {
+export default function InventoryItem({index, isActive, src, name, onClick}) {
     return (
         <div
             key={index}
@@ -15,8 +15,8 @@ export default function InventoryItem({index, isActive, src, name, onClick, imag
                 </div>
                 <div className="inventory-container">
                     <img
-                        src={src ?? require("../../assets/6.jpg")}
-                        alt="img-inventory-1"
+                        src={src}
+                        alt={name}
                         className="item-image h-100 object-fit"/>
                     <div className="item-middle"/>
                 </div>

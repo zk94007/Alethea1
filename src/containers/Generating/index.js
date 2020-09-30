@@ -43,7 +43,7 @@ class Generating extends Component {
         const {
             actions: {requestText2Speech}
         } = this.props;
-        requestText2Speech(message, name);
+        requestText2Speech(message, name, this.props.voiceId);
     }
 
     tick = () => {
@@ -56,7 +56,7 @@ class Generating extends Component {
         if (isWaiting) {
             this.timer = setTimeout(this.tick, 3000);
         }
-        this.setState({progress: this.state.progress + 10});
+        this.setState({progress: Math.min(this.state.progress + 5, 99) });
     }
 
     componentWillUnmount() {
@@ -133,13 +133,13 @@ class Generating extends Component {
                                         disabled={!email && !name}
                                         color="primary" className="mx-xl-5 mx-lg-4 mx-md-3 mx-sm-5 mb-3 mx-3 my-5"
                                         onClick={() => this.handleGenerateAudio()}>
-                                        Submit
+                                        Generate
                                     </Button>}
                             </PerfectScrollbar>
                         </div>
                         <div
-                            className="d-flex col-md-9 vh-max-100 background-color overflow-hidden flex-column pt-3 px-4 pb-4">
-                            <div className="brain-image w-100 mx-auto">
+                            className="d-flex col-md-9 vh-max-100 background-color overflow-hidden flex-column p-0">
+                            <div className="brain-image w-100 h-100 mx-auto">
                                 <div className="brain-blend w-100 h-100">
                                     <div className="brain-blend-2 w-100 h-100"/>
                                 </div>
@@ -166,7 +166,7 @@ class Generating extends Component {
                                         disabled={!email && !name}
                                         color="primary" className="mx-xl-5 mx-lg-4 mx-md-3 mx-sm-5 mb-3 mx-3 my-3"
                                         onClick={() => this.handleGenerateAudio()}>
-                                        Submit
+                                        Generate
                                     </Button>}
                                 {/*<MobileStepper*/}
                                 {/*    variant="dots"*/}
@@ -191,13 +191,14 @@ const mapStateToProps = (state) => ({
     jobId: state.alethea.jobId,
     videoKey: state.alethea.videoKey,
     jobResult: state.alethea.jobResult,
+    voiceId: state.alethea.voiceId
 });
 
 const mapDispatchToProps = (dispatch) => ({
     actions: {
-        requestText2Speech: (message, name) => {
+        requestText2Speech: (message, name, voiceId) => {
             dispatch(requestText2Speech({
-                voiceId: 'Joey',
+                voiceId: voiceId,
                 text: `Hi, ${name}. Thank you for using Alethea AI services. ${message} Hope you liked the video.`,
             }))
         },

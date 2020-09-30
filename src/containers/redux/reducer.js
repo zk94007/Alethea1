@@ -19,6 +19,7 @@ const initialState = {
     errors: '',
     progress: 0,
     authToken: '',
+    voiceId: '',
 }
 
 export default (state = initialState, action) => {
@@ -30,7 +31,7 @@ export default (state = initialState, action) => {
         case GET_STATUS_SUCCESS:
             return {...state, jobResult: action.resultKey,};
         case SET_VIDEO_ID:
-            return {...state, videoKey: action.id};
+            return {...state, videoKey: action.videoKey, voiceId: action.voiceId};
         case LOGIN_SUCCESS:
             return {...state, authToken: action.authToken};
         case TEXT_TO_SPEECH_ERROR:

@@ -21,9 +21,10 @@ export const requestGetStatus = (body) => ({
     body
 });
 
-export const selectVideoId = (id) => ({
+export const selectVideoId = ({videoKey, voiceId}) => ({
     type: SELECT_VIDEO_ID,
-    id
+    videoKey,
+    voiceId
 });
 
 export const requestLogin = (body) => ({
