@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Route, Redirect } from 'react-router-dom';
+import {Redirect, Route} from 'react-router-dom';
 
-const RoutePrivate = ({ component: Component, isAuthenticated, to, ...rest }) => (
+const RoutePrivate = ({component: Component, isAuthenticated, to, ...rest}) => (
     <Route
         {...rest}
         render={props =>
@@ -12,7 +12,7 @@ const RoutePrivate = ({ component: Component, isAuthenticated, to, ...rest }) =>
                 <Redirect
                     to={{
                         pathname: to,
-                        state: { redirect: props.location.pathname, isAuthenticated },
+                        state: {redirect: props.location.pathname, isAuthenticated},
                     }}
                 />
             )
@@ -28,7 +28,7 @@ RoutePrivate.propTypes = {
 };
 
 RoutePrivate.defaultProps = {
-    to: '/',
+    to: '/login',
 };
 
 export default RoutePrivate;

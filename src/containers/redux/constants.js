@@ -15,3 +15,7 @@ export const APP_READY = 'APP_READY';
 
 export const SELECT_VIDEO_ID = 'SELECT_VIDEO_ID';
 export const SET_VIDEO_ID = 'SET_VIDEO_ID';
+
+export const LOGIN_REQUEST = 'LOGIN_REQUEST';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_ERROR = 'LOGIN_ERROR';

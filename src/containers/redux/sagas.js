@@ -1,9 +1,5 @@
 import {all, call, put, takeLatest} from 'redux-saga/effects';
-import {
-    requestText2Speech,
-    requestGetResult,
-    requestGetStatus
-} from '../../services/http_client';
+import {requestGetResult, requestGetStatus, requestText2Speech} from '../../services/http_client';
 import {
     APP_READY,
     APP_WAITING,
@@ -12,7 +8,9 @@ import {
     GET_RESULT_SUCCESS,
     GET_STATUS_ERROR,
     GET_STATUS_REQUEST,
-    GET_STATUS_SUCCESS, SELECT_VIDEO_ID, SET_VIDEO_ID,
+    GET_STATUS_SUCCESS, LOGIN_ERROR, LOGIN_REQUEST, LOGIN_SUCCESS,
+    SELECT_VIDEO_ID,
+    SET_VIDEO_ID,
     TEXT_TO_SPEECH_ERROR,
     TEXT_TO_SPEECH_REQUEST,
     TEXT_TO_SPEECH_SUCCESS
@@ -109,9 +107,19 @@ function* handleSelectVideoId(action) {
     yield put({type: SET_VIDEO_ID, id});
 }
 
+function* handleLoginRequest(action) {
+    const {body} = action;
+    if (body.email === 'alethea@test.com' && body.password === '123456') {
+        yield put({type: LOGIN_SUCCESS, authToken: btoa("admin:Mx9fncRCaMjIoKhyWmO3JPK5dPS4BgxI")})
+    } else {
+        yield put({type: LOGIN_ERROR, msg: 'Wrong username or password!'})
+    }
+}
+
 export default all([
     takeLatest(TEXT_TO_SPEECH_REQUEST, handleRequestText2Speech),
     takeLatest(GET_RESULT_REQUEST, handleRequestGetResult),
     takeLatest(GET_STATUS_REQUEST, handleRequestGetStatus),
     takeLatest(SELECT_VIDEO_ID, handleSelectVideoId),
+    takeLatest(LOGIN_REQUEST, handleLoginRequest)
 ]);

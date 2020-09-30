@@ -1,4 +1,3 @@
-
 import {all} from 'redux-saga/effects';
 import AletheaSaga from '../containers/redux/sagas';
 

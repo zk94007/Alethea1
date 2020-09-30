@@ -1,11 +1,10 @@
-import React, {useState} from "react";
-import { createMuiTheme } from "@material-ui/core/styles";
-import { ThemeProvider } from "@material-ui/styles";
-import { create } from "jss";
-import { StylesProvider, jssPreset } from "@material-ui/styles";
+import React, {Component, useState} from "react";
+import {createMuiTheme} from "@material-ui/core/styles";
+import {jssPreset, StylesProvider, ThemeProvider} from "@material-ui/styles";
+import {create} from "jss";
 import {ConfirmProvider} from "material-ui-confirm";
 import MuiPickersUtilsProvider from "@material-ui/pickers/MuiPickersUtilsProvider";
-import {Router, Redirect, Switch} from 'react-router-dom';
+import {Router, Switch} from 'react-router-dom';
 import history from "../routes/history";
 import DateFnsUtils from '@date-io/date-fns';
 import RoutePublic from "../compnents/RoutePublic";
@@ -15,17 +14,27 @@ import Generating from "./Generating";
 import Inventory from "./Inventory";
 import Hello from "./Hello";
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import {Hidden, AppBar, Toolbar, IconButton, CssBaseline, Drawer} from "@material-ui/core";
-import {Notes as NotesIcon} from '@material-ui/icons';
+import {AppBar, Box, Container, CssBaseline, Drawer, Hidden, IconButton, Toolbar} from "@material-ui/core";
+import {Notes as NotesIcon, Close as CloseIcon} from '@material-ui/icons';
 import {ReactSVG} from "react-svg";
 import SideAppBar from "../compnents/SideAppbar";
 import {setupHttpConfig} from "../utils/http";
+import Login from "./Login";
+import {connect} from "react-redux";
+import RoutePrivate from "../compnents/RoutePrivate";
 
-function ThemeApp() {
-    const jss = create({ plugins: [...jssPreset().plugins] });
-    const [showDrawer, setShowDrawer] = useState(false);
-    const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-    const theme = createMuiTheme({
+class ThemeApp extends Component {
+
+    constructor(props, context) {
+        super(props, context);
+
+        this.state = {
+            showDrawer: false
+        }
+        this.jss = create({plugins: [...jssPreset().plugins]});
+    }
+
+    theme = createMuiTheme({
         typography: {
             fontFamily: "Poppins",
         },
@@ -106,86 +115,115 @@ function ThemeApp() {
                 }
             },
             MuiDrawer: {
+                root: {
+                    top: '56px !important'
+                },
                 paper: {
                     backgroundColor: '#2D333A',
+                    top: 56
+                }
+            },
+            MuiBackdrop: {
+                root: {
+                    top: 56
                 }
             }
         },
     });
 
-    setupHttpConfig();
-    return (
-        <StylesProvider jss={jss}>
-            <ThemeProvider theme={theme}>
-                <CssBaseline />
-                <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                    <ConfirmProvider >
-                        <Hidden smUp>
-                            <AppBar position="static">
-                                <Toolbar variant="dense" className="d-flex justify-content-between">
-                                    <IconButton edge="start" color="inherit" aria-label="menu" onClick={() => setShowDrawer(true)}>
-                                        <NotesIcon />
-                                    </IconButton>
-                                    <ReactSVG src="logo_white.svg" className="logo-max-width p-0 m-3" />
-                                    <IconButton edge="start" color="inherit" aria-label="menu">
-                                        <ReactSVG src={require('../assets/me_active.svg')} className="logo-max-width p-0 m-0" />
-                                    </IconButton>
-                                </Toolbar>
-                            </AppBar>
-                            <Drawer
-                                variant="temporary"
-                                open={showDrawer}
-                                onBackdropClick={() => setShowDrawer(false)}
-                            >
-                                <SideAppBar />
-                            </Drawer>
-                        </Hidden>
-                        <div className="d-flex flex-row">
-                            <Hidden xsDown>
-                                <SideAppBar />
-                            </Hidden>
-                            <div className="flex-fill">
-                                <Router history={history}>
-                                    <Switch>
-                                        <RoutePublic
-                                            isAuthenticated={false}
-                                            path="/"
-                                            exact
-                                            component={Home}
-                                        />
-                                        <RoutePublic
-                                            isAuthenticated={false}
-                                            path="/upload"
-                                            exact
-                                            component={Upload}
-                                        />
-                                        <RoutePublic
-                                            isAuthenticated={false}
-                                            path="/generating"
-                                            exact
-                                            component={Generating}
-                                        />
-                                        <RoutePublic
-                                            isAuthenticated={false}
-                                            path="/inventory"
-                                            exact
-                                            component={Inventory}
-                                        />
-                                        <RoutePublic
-                                            isAuthenticated={false}
-                                            path="/hello"
-                                            exact
-                                            component={Hello}
-                                        />
-                                    </Switch>
-                                </Router>
+    componentDidMount() {
+        setupHttpConfig();
+    }
+
+
+    render() {
+        const {authToken} = this.props;
+        const {showDrawer} = this.state;
+        return (
+            <StylesProvider jss={this.jss}>
+                <ThemeProvider theme={this.theme}>
+                    <CssBaseline/>
+                    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                        <ConfirmProvider>
+                            {authToken && <Hidden smUp>
+                                <AppBar position="static">
+                                    <Toolbar variant="dense" className="d-flex justify-content-between">
+                                        <IconButton edge="start" color="inherit" aria-label="menu"
+                                                    onClick={() => this.setState({showDrawer: !showDrawer})}>
+                                            {showDrawer ? <CloseIcon/> : <NotesIcon/>}
+                                        </IconButton>
+                                        <ReactSVG src="logo_white.svg" className="logo-max-width p-0 m-3"/>
+                                        <IconButton edge="start" color="inherit" aria-label="menu">
+                                            <ReactSVG src={require('../assets/me_active.svg')}
+                                                      className="logo-max-width p-0 m-0"/>
+                                        </IconButton>
+                                    </Toolbar>
+                                </AppBar>
+                                <Drawer
+                                    variant="temporary"
+                                    open={showDrawer}
+                                    onBackdropClick={() => this.setState({showDrawer: false})}
+                                >
+                                    <SideAppBar/>
+                                </Drawer>
+                            </Hidden>}
+                            <div className="d-flex flex-row">
+                                <Hidden xsDown>
+                                    <SideAppBar/>
+                                </Hidden>
+                                <div className="flex-fill">
+                                    <Router history={history}>
+                                        <Switch>
+                                            <RoutePrivate
+                                                isAuthenticated={!!authToken}
+                                                path="/"
+                                                exact
+                                                component={Home}
+                                            />
+                                            <RoutePublic
+                                                isAuthenticated={!!authToken}
+                                                path="/login"
+                                                exact
+                                                component={Login}
+                                            />
+                                            <RoutePrivate
+                                                isAuthenticated={!!authToken}
+                                                path="/upload"
+                                                exact
+                                                component={Upload}
+                                            />
+                                            <RoutePrivate
+                                                isAuthenticated={!!authToken}
+                                                path="/generating"
+                                                exact
+                                                component={Generating}
+                                            />
+                                            <RoutePrivate
+                                                isAuthenticated={!!authToken}
+                                                path="/inventory"
+                                                exact
+                                                component={Inventory}
+                                            />
+                                            <RoutePrivate
+                                                isAuthenticated={!!authToken}
+                                                path="/hello"
+                                                exact
+                                                component={Hello}
+                                            />
+                                        </Switch>
+                                    </Router>
+                                </div>
                             </div>
-                        </div>
-                    </ConfirmProvider>
-                </MuiPickersUtilsProvider>
-            </ThemeProvider>
-        </StylesProvider>
-    );
+                        </ConfirmProvider>
+                    </MuiPickersUtilsProvider>
+                </ThemeProvider>
+            </StylesProvider>
+        );
+    }
 }
 
-export default ThemeApp;
+const mapStateToProps = (state) => ({
+    authToken: state.alethea.authToken,
+});
+
+export default connect(mapStateToProps, null)(ThemeApp);

@@ -8,14 +8,14 @@ export default function FinalItem({index, src, name, onClick, image}) {
     return (
         <div
             key={index}
-            onClick={() => onClick() }
+            onClick={() => onClick()}
             className="final-item-container">
             <div className="final-item">
                 <img
                     src={src ?? require("../../assets/6.jpg")}
                     alt="img-inventory-1"
                     className="final-image w-100 h-100 object-fit"/>
-                <div className="item-middle" />
+                <div className="item-middle"/>
             </div>
             <div className="final-item d-flex flex-row justify-content-between pt-2 px-2">
                 <IconButton size="small" className="close-button" aria-label="delete">
@@ -26,7 +26,7 @@ export default function FinalItem({index, src, name, onClick, image}) {
                         src={src ?? require("../../assets/6.jpg")}
                         alt="img-inventory-1"
                         className="final-avatar w-100 h-100 object-fit"/>
-                    <IconButton  className="refresh-button" aria-label="delete">
+                    <IconButton className="refresh-button" aria-label="delete">
                         <SyncIcon color="primary"/>
                     </IconButton>
                 </div>

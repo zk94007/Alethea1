@@ -1,5 +1,5 @@
 import {combinedReducers} from './mainReducer';
-import {createStore, applyMiddleware, compose} from 'redux';
+import {applyMiddleware, compose, createStore} from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import {mainSaga} from './mainSaga';
 

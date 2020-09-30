@@ -114,9 +114,11 @@ class Inventory extends Component {
                                 <h3 className="mt-4 mx-3 mb-2 font-weight-semi-bold">
                                     Stars
                                 </h3>
-                                <h5 className="gray-color mx-5 mb-1 text-center">
-                                    For a limited time, we are giving free public access to the <b>Stars</b> in the <b>Genesis
-                                    Batch</b>!<br/>Choose your favorite Star:
+                                <h5 className="gray-color mx-4 mb-1 text-center">
+                                    For a limited time, we are giving free<br/>
+                                    public access to the <b>Stars</b> in<br/>
+                                    the <b>Genesis Batch</b>!<br/>
+                                    Choose your favorite Star:
                                 </h5>
                                 {/*<div className="horizontal-separator w-100" />*/}
                                 {/*{this.renderScroll()}*/}

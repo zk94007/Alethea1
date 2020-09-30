@@ -5,8 +5,9 @@ export default function InventoryItem({index, isActive, src, name, onClick, imag
     return (
         <div
             key={index}
-            onClick={() => onClick() }
-            className="col-xl-3 col-lg-4 col-md-6 mt-2 mb-2 mb-md-4 px-2 p-0" style={isActive === false ? {opacity: 0.5} : {opacity: 1}}>
+            onClick={() => onClick()}
+            className="col-xl-3 col-lg-4 col-md-6 mt-2 mb-2 mb-md-4 px-2 py-0"
+            style={isActive === false ? {opacity: 0.5} : {opacity: 1}}>
             <div className="item-container">
                 <div className={"d-flex align-items-center " + (isActive ? "active-item-header" : "item-header")}>
                     <label className="avatar-sticker">Genesis</label>
@@ -17,7 +18,7 @@ export default function InventoryItem({index, isActive, src, name, onClick, imag
                         src={src ?? require("../../assets/6.jpg")}
                         alt="img-inventory-1"
                         className="item-image h-100 object-fit"/>
-                    <div className="item-middle" />
+                    <div className="item-middle"/>
                 </div>
             </div>
         </div>

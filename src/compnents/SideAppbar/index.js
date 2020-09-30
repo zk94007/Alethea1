@@ -24,19 +24,22 @@ export default function SideAppBar() {
             icon: require('../../assets/fanart.svg'),
             iconActive: require('../../assets/fanart_active.svg'),
             title: 'Fan art',
-            action: () => {}
+            action: () => {
+            }
         },
         {
             icon: require('../../assets/me.svg'),
             iconActive: require('../../assets/me_active.svg'),
             title: 'Me',
-            action: () => {}
+            action: () => {
+            }
         },
         {
             icon: require('../../assets/info.svg'),
             iconActive: require('../../assets/info_active.svg'),
             title: 'About',
-            action: () => {}
+            action: () => {
+            }
         }
     ];
     const currentLocation = history.location;
@@ -46,7 +49,7 @@ export default function SideAppBar() {
             {sideApp.map(e => (
                 <Button key={e.title} className="app-item-container" onClick={e.action}>
                     <div className=" d-flex flex-column">
-                        <ReactSVG src={e.icon} className="logo-max-width p-0 m-2" />
+                        <ReactSVG src={e.icon} className="logo-max-width p-0 m-2"/>
                         <label className="mb-0 app-item-text">{e.title}</label>
                     </div>
                 </Button>

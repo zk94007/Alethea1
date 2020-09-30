@@ -1,4 +1,10 @@
-import {GET_RESULT_REQUEST, GET_STATUS_REQUEST, SELECT_VIDEO_ID, TEXT_TO_SPEECH_REQUEST} from "./constants";
+import {
+    GET_RESULT_REQUEST,
+    GET_STATUS_REQUEST,
+    LOGIN_REQUEST,
+    SELECT_VIDEO_ID,
+    TEXT_TO_SPEECH_REQUEST
+} from "./constants";
 
 export const requestText2Speech = (body) => ({
     type: TEXT_TO_SPEECH_REQUEST,
@@ -18,4 +24,9 @@ export const requestGetStatus = (body) => ({
 export const selectVideoId = (id) => ({
     type: SELECT_VIDEO_ID,
     id
+});
+
+export const requestLogin = (body) => ({
+    type: LOGIN_REQUEST,
+    body
 });

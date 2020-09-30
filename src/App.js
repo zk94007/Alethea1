@@ -5,11 +5,11 @@ import './App.scss';
 import ThemeApp from "./containers";
 
 function App() {
-  return (
-      <ReduxProvider store={store}>
-          <ThemeApp />
-      </ReduxProvider>
-  );
+    return (
+        <ReduxProvider store={store}>
+            <ThemeApp/>
+        </ReduxProvider>
+    );
 }
 
 export default App;

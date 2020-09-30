@@ -82,7 +82,8 @@ class Generating extends Component {
                 <label className="mx-xl-5 mx-lg-4 mx-md-3 mx-sm-5 mx-3 font-weight-medium">
                     Where should the Star email you?
                 </label>
-                <TextField id="email-input" variant="outlined" className="mx-xl-5 mx-lg-4 mx-md-3 mx-sm-5 mb-3 mb-sm-4 mx-3"
+                <TextField id="email-input" variant="outlined"
+                           className="mx-xl-5 mx-lg-4 mx-md-3 mx-sm-5 mb-3 mb-sm-4 mx-3"
                            value={email}
                            disabled={isWaiting}
                            onChange={(e) => this.setState({email: e.target.value})}
@@ -90,7 +91,8 @@ class Generating extends Component {
                 <label className="mx-xl-5 mx-lg-4 mx-md-3 mx-sm-5 mx-3 font-weight-medium">
                     Would you like a personalized message?
                 </label>
-                <TextField id="email-input" variant="outlined" className="mx-xl-5 mx-lg-4 mx-md-3 mx-sm-5 mb-3 mb-sm-4 mx-3"
+                <TextField id="email-input" variant="outlined"
+                           className="mx-xl-5 mx-lg-4 mx-md-3 mx-sm-5 mb-3 mb-sm-4 mx-3"
                            value={message}
                            multiline
                            rows={5}
@@ -105,7 +107,8 @@ class Generating extends Component {
         const {progress} = this.state;
         return (<div className="mx-3">
             <div className="d-flex progress-container w-100 my-3 justify-content-center align-items-center">
-                <Progress value={progress} className="w-100" barClassName="bar-progress gray-color">{progress}%</Progress>
+                <Progress value={progress} className="w-100"
+                          barClassName="bar-progress gray-color">{progress}%</Progress>
             </div>
         </div>);
     }
@@ -120,23 +123,25 @@ class Generating extends Component {
                     <div className="row p-0 m-0">
                         <div className="col-md-3 vh-100 p-0 splitter">
                             <PerfectScrollbar className="d-flex flex-column">
-                                <ReactSVG src="logo_white.svg" className="logo-max-width p-0 mx-xl-5 mx-lg-4 mx-md-3 mx-sm-5 my-5"/>
+                                <ReactSVG src="logo_white.svg"
+                                          className="logo-max-width p-0 mx-xl-5 mx-lg-4 mx-md-3 mx-sm-5 my-5"/>
                                 {this.renderContent()}
                                 {isWaiting ?
                                     this.renderProgressBar() :
                                     <Button
-                                    variant="contained"
-                                    disabled={!email && !name}
-                                    color="primary" className="mx-xl-5 mx-lg-4 mx-md-3 mx-sm-5 mb-3 mx-3 my-5"
-                                    onClick={() => this.handleGenerateAudio()}>
-                                    Submit
-                                </Button>}
+                                        variant="contained"
+                                        disabled={!email && !name}
+                                        color="primary" className="mx-xl-5 mx-lg-4 mx-md-3 mx-sm-5 mb-3 mx-3 my-5"
+                                        onClick={() => this.handleGenerateAudio()}>
+                                        Submit
+                                    </Button>}
                             </PerfectScrollbar>
                         </div>
-                        <div className="d-flex col-md-9 vh-max-100 background-color overflow-hidden flex-column pt-3 px-4 pb-4">
+                        <div
+                            className="d-flex col-md-9 vh-max-100 background-color overflow-hidden flex-column pt-3 px-4 pb-4">
                             <div className="brain-image w-100 mx-auto">
                                 <div className="brain-blend w-100 h-100">
-                                    <div className="brain-blend-2 w-100 h-100" />
+                                    <div className="brain-blend-2 w-100 h-100"/>
                                 </div>
                             </div>
                             {/*<div className="d-flex justify-content-center align-items-center m-auto progress">*/}
@@ -157,12 +162,12 @@ class Generating extends Component {
                                 {isWaiting ?
                                     this.renderProgressBar() :
                                     <Button
-                                    variant="contained"
-                                    disabled={!email && !name}
-                                    color="primary" className="mx-xl-5 mx-lg-4 mx-md-3 mx-sm-5 mb-3 mx-3 my-3"
-                                    onClick={() => this.handleGenerateAudio()}>
-                                    Submit
-                                </Button>}
+                                        variant="contained"
+                                        disabled={!email && !name}
+                                        color="primary" className="mx-xl-5 mx-lg-4 mx-md-3 mx-sm-5 mb-3 mx-3 my-3"
+                                        onClick={() => this.handleGenerateAudio()}>
+                                        Submit
+                                    </Button>}
                                 {/*<MobileStepper*/}
                                 {/*    variant="dots"*/}
                                 {/*    steps={4}*/}
