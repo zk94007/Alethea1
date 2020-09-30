@@ -1,0 +1,66 @@
+.background-color {
+  background-color: #03080E;
+}
+
+.brain-blend {
+  background: #3B4148;
+  mix-blend-mode: color;
+}
+
+.brain-blend-2 {
+  background: linear-gradient(89.02deg, #7034E5 0.89%, #8045F4 100%);
+  mix-blend-mode: color;
+  opacity: 0.1;
+}
+
+.brain-image {
+  background-image: url("../../assets/brain.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  max-width: 1000px;
+  width: 100%;
+  max-height: 640px;
+  height: -webkit-fill-available;
+}
+
+.progress {
+  padding: 6px;
+  border-radius: 34px;
+  height: 42px;
+  background: linear-gradient(180deg, #1C1C1C 2.38%, #2B2B2B 97.62%);
+  max-width: 580px;
+  width: 40%;
+  min-height: 40px;
+  box-shadow: 0 8px 24px rgba(43, 46, 78, 0.16), 0 4px 8px rgba(43, 46, 78, 0.08);
+}
+
+.progress-container {
+  background: linear-gradient(180deg, #C0C0C2 0%, #636363 100%);
+  border-radius: 1000px;
+  height: 48px;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.bar-progress {
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 80.21%), linear-gradient(89.02deg, #6226D9 0.89%, #8C52FF 100%), linear-gradient(89.02deg, #006AD0 0.89%, #6BE4F6 100%);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+}
+
+@media (max-width: 720px) {
+  .bar-progress {
+    border-radius: 20px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 80.21%), linear-gradient(89.02deg, #6226D9 0.89%, #8C52FF 100%), linear-gradient(89.02deg, #006AD0 0.89%, #6BE4F6 100%);
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+  }
+}
+
+.progress-shadow {
+  box-shadow: 0 8px 24px rgba(43, 46, 78, 0.16), 0 4px 8px rgba(43, 46, 78, 0.08);
+}
