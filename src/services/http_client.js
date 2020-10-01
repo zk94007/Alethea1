@@ -13,7 +13,6 @@ export async function requestText2Speech(body) {
 }
 
 export async function requestGetResult(body) {
-  console.log("requestGetResult => ", body);
   const response = await fetch(DEV_REQUEST, {
     method: "POST",
     headers: {

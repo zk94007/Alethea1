@@ -147,7 +147,6 @@ class Generating extends Component {
   render() {
     const { name, email } = this.state;
     const { isWaiting } = this.props;
-    console.log(this.props);
     return (
       <div className="vh-100">
         <Hidden xsDown>

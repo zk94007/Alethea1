@@ -40,7 +40,6 @@ export default function SideAppBar() {
     },
   ];
   const currentLocation = history.location;
-  console.log(currentLocation);
   return (
     <div className="app-bar-width vh-100 d-flex flex-column">
       {sideApp.map((e) => (

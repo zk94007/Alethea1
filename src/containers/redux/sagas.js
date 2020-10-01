@@ -25,12 +25,10 @@ import {
 import history from "../../routes/history";
 
 function* handleRequestText2Speech(action) {
-  console.log(action);
   yield put({ type: APP_WAITING });
   try {
     const { body } = action;
     const { status, payload } = yield call(requestText2Speech, body);
-    console.log(status, payload);
     if (status) {
       yield put({
         type: TEXT_TO_SPEECH_SUCCESS,
@@ -38,7 +36,6 @@ function* handleRequestText2Speech(action) {
       });
     }
   } catch (e) {
-    console.log(e);
     yield put({
       type: TEXT_TO_SPEECH_ERROR,
       msg: "TEXT_TO_SPEECH_ERROR: the connection was failed.",
@@ -48,25 +45,21 @@ function* handleRequestText2Speech(action) {
 
 function* handleRequestGetResult(action) {
   yield put({ type: APP_WAITING });
-  console.log(action);
   try {
     const { body } = action;
     const { status, payload } = yield call(requestGetResult, body);
-    console.log(status, payload);
     if (status) {
       yield put({
         type: GET_RESULT_SUCCESS,
         resultKey: payload.jobId,
       });
     } else {
-      console.log(status, payload);
       yield put({
         type: GET_RESULT_ERROR,
         msg: "GET_RESULT_ERROR: the connection was failed.",
       });
     }
   } catch (e) {
-    console.log(e);
     yield put({
       type: GET_RESULT_ERROR,
       msg: "GET_RESULT_ERROR: the connection was failed.",
@@ -95,14 +88,12 @@ function* handleRequestGetStatus(action) {
         });
       }
     } else {
-      console.log(status, payload);
       yield put({
         type: GET_STATUS_ERROR,
         msg: "GET_STATUS_ERROR: the connection was failed.",
       });
     }
   } catch (e) {
-    console.log(e);
     yield put({
       type: GET_STATUS_ERROR,
       msg: "GET_STATUS_ERROR: the connection was failed.",
@@ -118,7 +109,6 @@ function* handleSelectVideoId(action) {
 function* handleLoginRequest(action) {
   const { body } = action;
   if (body.email === "alethea@test.com" && body.password === "123456") {
-    console.log("sagas : LOGIN_SUCCESS");
     yield put({
       type: LOGIN_SUCCESS,
       authToken: btoa("admin:Mx9fncRCaMjIoKhyWmO3JPK5dPS4BgxI"),
