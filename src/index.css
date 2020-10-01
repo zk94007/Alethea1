@@ -147,6 +147,25 @@ label {
     line-height: 21px;
 }
 
+label.font-lg {
+    font-size: 20px;
+    line-height: 30px;
+}
+
+label.font-tiny {
+    font-size: 11px;
+    line-height: 16px;
+}
+
+label.font-sm {
+    font-size: 12px;
+    line-height: 18px;
+}
+
+label.disabled {
+    color: #71727D;
+}
+
 .gray-color {
     color: var(--primaryGrayColor);
 }

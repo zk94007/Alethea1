@@ -15,6 +15,10 @@ export default class Home extends Component {
   //     super(props, context);
   // }
 
+  // constructor(props, context) {
+  //     super(props, context);
+  // }
+
   render() {
     return (
       <div className="d-flex vh-100">
@@ -26,12 +30,10 @@ export default class Home extends Component {
                   src="logo_white.svg"
                   className="logo-max-width p-0 mx-xl-5 mx-lg-4 mx-md-3 mx-sm-5 my-5"
                 />
-                <h1 className="xl-font-size font-weight-bold mt-auto">
-                  Fan Art
+                <h3 className="font-weight-normal mt-auto">Introducing</h3>
+                <h1 className="xl-font-size font-weight-bold custom-mb  mb-auto">
+                  AI Avatars
                 </h1>
-                <h3 className="text-uppercase font-weight-normal custom-mb mb-auto">
-                  Reimagined
-                </h3>
                 <Typical
                   steps={[
                     "",
@@ -52,10 +54,9 @@ export default class Home extends Component {
                   loop={Infinity}
                   wrapper="h1"
                 />
-                <h5 className="gray-color text-center mt-2 mb-3">
-                  Create AI-powered fan art
-                  <br />
-                  featuring your favorite stars.
+                <h5 className="gray-color text-center mt-2 mb-3 mx-xl-5 mx-lg-4 mx-md-3 mx-sm-5">
+                  We let you generate AI-powered Avatars that can be featured in
+                  various types of digital media.
                 </h5>
                 <div className="w-100 d-flex justify-content-center">
                   <Button
@@ -90,12 +91,12 @@ export default class Home extends Component {
                     containerHeight={500}
                     containerWidth={500}
                   />
-                  <h1 className="xl-font-size font-weight-bold custom-control p-0">
-                    Fan Art
-                  </h1>
-                  <h3 className="text-uppercase custom-control font-weight-normal p-0 custom-mb">
-                    Reimagined
+                  <h3 className="custom-control font-weight-normal p-0">
+                    Introducing
                   </h3>
+                  <h1 className="xl-font-size font-weight-bold custom-control p-0 custom-mb">
+                    AI Avatars
+                  </h1>
                 </div>
               </div>
               <div className="mx-auto minus-margin d-flex justify-content-center">
@@ -116,8 +117,7 @@ export default class Home extends Component {
                     2000,
                     "Photorealistic",
                     2000,
-                    "Tokenized",
-                    2000,
+                    // 'Tokenized', 2000,
                     "Multilingual",
                     2000,
                     "Interactive",
@@ -131,9 +131,11 @@ export default class Home extends Component {
                   wrapper="h1"
                 />
                 <h5 className="gray-color text-center mt-2">
-                  Create AI-powered fan art
+                  We let you generate AI-powered
                   <br />
-                  featuring your favorite stars.
+                  Avatars that can be featured in various
+                  <br />
+                  types of digital media.
                 </h5>
               </div>
               <div className="bottom-stepper py-2 mt-auto">

@@ -14,16 +14,16 @@ export default function SideAppBar() {
       location: "/",
     },
     {
-      icon: require("../../assets/start.svg"),
-      iconActive: require("../../assets/start_active.svg"),
-      title: "Stars",
+      icon: require("../../assets/ai_avatar.svg"),
+      iconActive: require("../../assets/ai_avatar_active.svg"),
+      title: "AI Avatars",
       action: () => history.push("/inventory"),
       location: "/inventory",
     },
     {
-      icon: require("../../assets/fanart.svg"),
-      iconActive: require("../../assets/fanart_active.svg"),
-      title: "Fan art",
+      icon: require("../../assets/studio.svg"),
+      iconActive: require("../../assets/studio_active.svg"),
+      title: "Studio",
       action: () => {},
     },
     {
@@ -40,6 +40,7 @@ export default function SideAppBar() {
     },
   ];
   const currentLocation = history.location;
+  console.log(currentLocation);
   return (
     <div className="app-bar-width vh-100 d-flex flex-column">
       {sideApp.map((e) => (

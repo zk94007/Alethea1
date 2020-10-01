@@ -31,6 +31,8 @@ import { setupHttpConfig } from "../utils/http";
 import Login from "./Login";
 import { connect } from "react-redux";
 import RoutePrivate from "../compnents/RoutePrivate";
+import SignUp from "./SignUp";
+import AIAvatars from "./AIAvatar";
 
 class ThemeApp extends Component {
   constructor(props, context) {
@@ -73,14 +75,104 @@ class ThemeApp extends Component {
           padding: "6px 32px",
           borderRadius: 100,
         },
-        sizeLarge: {
-          height: 54,
-          fontSize: 20,
-          fontWeight: 500,
-          maxWidth: 280,
+        palette: {
+          type: "dark", //prefersDarkMode ? 'dark' : 'light',
+          common: {
+            black: "#121427",
+          },
+          primary: {
+            main: "#3F4CC9",
+            dark: "#2D3AB5",
+            light: "#4851AA",
+          },
+          text: {
+            primary: "#FFFFFF",
+            secondary: "#71727D",
+            hint: "#1214274B",
+            disabled: "#71727D",
+          },
+          action: {
+            disabledBackground: "#71727D",
+            disabled: "rgba(255, 255, 255, 0.5)",
+          },
         },
-        contained: {
-          boxShadow: "none",
+        overrides: {
+          MuiButton: {
+            root: {
+              textTransform: "none",
+              height: 48,
+              fontSize: 16,
+              lineHeight: 1.5,
+              padding: "6px 32px",
+              borderRadius: 100,
+              "&$disabled": {
+                background: "none",
+              },
+            },
+            sizeLarge: {
+              height: 54,
+              fontSize: 20,
+              fontWeight: 500,
+              maxWidth: 280,
+            },
+            contained: {
+              boxShadow: "none",
+            },
+            containedPrimary: {
+              color: "white",
+              background:
+                "linear-gradient(89.02deg, #6226D9 0.89%, #8C52FF 100%)",
+              boxShadow:
+                "0px 8px 16px rgba(98, 38, 217, 0.24), 0px 4px 8px rgba(98, 38, 217, 0.16)",
+            },
+          },
+          MuiOutlinedInput: {
+            input: {
+              padding: "14.4px 14px",
+            },
+          },
+          MuiMobileStepper: {
+            root: {
+              background: "#121427",
+            },
+            dots: {
+              backgroundColor: "transparent",
+            },
+            dot: {
+              margin: "0 4px",
+              width: 8,
+              height: 8,
+              border: "2px solid #121427",
+              backgroundColor: "white",
+            },
+            dotActive: {
+              border: "2px solid white",
+              backgroundColor: "#3F4CC9",
+            },
+          },
+          MuiAppBar: {
+            root: {
+              height: 56,
+            },
+            colorPrimary: {
+              backgroundColor: "#121427",
+              boxShadow: "none",
+            },
+          },
+          MuiDrawer: {
+            root: {
+              top: "56px !important",
+            },
+            paper: {
+              backgroundColor: "#2D333A",
+              top: 56,
+            },
+          },
+          MuiBackdrop: {
+            root: {
+              top: 56,
+            },
+          },
         },
         containedPrimary: {
           color: "white",
@@ -210,6 +302,18 @@ class ThemeApp extends Component {
                         path="/login"
                         exact
                         component={Login}
+                      />
+                      <RoutePublic
+                        isAuthenticated={!!authToken}
+                        path="/signup"
+                        exact
+                        component={SignUp}
+                      />
+                      <RoutePrivate
+                        isAuthenticated={!!authToken}
+                        path="/avatars"
+                        exact
+                        component={AIAvatars}
                       />
                       <RoutePrivate
                         isAuthenticated={!!authToken}
