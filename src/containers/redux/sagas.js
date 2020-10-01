@@ -108,8 +108,10 @@ function* handleSelectVideoId(action) {
 }
 
 function* handleLoginRequest(action) {
+    
     const {body} = action;
     if (body.email === 'alethea@test.com' && body.password === '123456') {
+        console.log("sagas : LOGIN_SUCCESS");
         yield put({type: LOGIN_SUCCESS, authToken: btoa("admin:Mx9fncRCaMjIoKhyWmO3JPK5dPS4BgxI")})
     } else {
         yield put({type: LOGIN_ERROR, msg: 'Wrong username or password!'})
