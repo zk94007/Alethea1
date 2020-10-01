@@ -12,29 +12,20 @@ import {selectVideoId} from "../redux/actions";
 
 const INVENTORIES = [
     {
-        name: "User 1",
-        videoKey: "Video.mp4",
-        previewImage: "../../assets/1.jpg"
+        name: "Inventory 1",
+        videoKey: "V-1.mp4",
+        voiceId: "Kimberly",
+        imageSrc: "https://wav2lip.s3.us-east-2.amazonaws.com/inventory-1.png"
     }, {
-        name: "User 2",
-        videoKey: "Video.mp4",
-        previewImage: "../../assets/2.jpg"
+        name: "Inventory 2",
+        videoKey: "V-2.mp4",
+        voiceId: "Kimberly",
+        imageSrc: "https://wav2lip.s3.us-east-2.amazonaws.com/inventory-2.png"
     }, {
-        name: "User 3",
-        videoKey: "Video.mp4",
-        previewImage: "../../assets/3.jpg"
-    }, {
-        name: "User 4",
-        videoKey: "Video.mp4",
-        previewImage: "../../assets/4.jpg"
-    }, {
-        name: "User 5",
-        videoKey: "Video.mp4",
-        previewImage: "../../assets/5.jpg"
-    }, {
-        name: "User 6",
-        videoKey: "Video.mp4",
-        previewImage: "../../assets/6.jpg"
+        name: "Inventory 3",
+        videoKey: "V-3.mp4",
+        voiceId: "Joey",
+        imageSrc: "https://wav2lip.s3.us-east-2.amazonaws.com/inventory-3.png"
     }
 ];
 
@@ -57,7 +48,7 @@ class Inventory extends Component {
                         key={n}
                         isActive={selectedIndex === null ? null : (selectedIndex === e)}
                         name={e.name}
-                        image={e.previewImage}
+                        src={e.imageSrc}
                     />
                 ))}
             </div>
@@ -67,7 +58,7 @@ class Inventory extends Component {
     onContinue() {
         const {actions: {selectVideoKey}} = this.props;
         const {selectedIndex} = this.state;
-        selectVideoKey(selectedIndex.videoKey);
+        selectVideoKey(selectedIndex.videoKey, selectedIndex.voiceId);
         history.push('/generating');
     }
 
@@ -133,7 +124,7 @@ class Inventory extends Component {
                                                     index={e}
                                                     isActive={selectedIndex === null ? null : (selectedIndex === e)}
                                                     name={e.name}
-                                                    image={e.previewImage}
+                                                    src={e.imageSrc}
                                                 />
                                             ))}
                                         </SwipeableViews>
@@ -168,8 +159,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     actions: {
-        selectVideoKey: (id) => {
-            dispatch(selectVideoId(id));
+        selectVideoKey: (videoKey, voiceId) => {
+            dispatch(selectVideoId({videoKey, voiceId}));
         }
     }
 });

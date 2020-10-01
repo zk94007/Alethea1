@@ -71,7 +71,7 @@ class Hello extends Component {
                                             <video
                                                 controls
                                                 className='side_avatar_image object-fit w-100 h-100'
-                                                src={'https://d2iia7yeg2usc9.cloudfront.net/' + jobResult.resultKey}/>
+                                                src={'https://wav2lip.s3.us-east-2.amazonaws.com/' + jobResult.resultKey}/>
                                         </div>
                                     </div>
                                     <div className="mt-auto">

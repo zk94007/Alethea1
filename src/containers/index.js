@@ -145,7 +145,7 @@ class ThemeApp extends Component {
                     <CssBaseline/>
                     <MuiPickersUtilsProvider utils={DateFnsUtils}>
                         <ConfirmProvider>
-                            {authToken && <Hidden smUp>
+                            <Hidden smUp>
                                 <AppBar position="static">
                                     <Toolbar variant="dense" className="d-flex justify-content-between">
                                         <IconButton edge="start" color="inherit" aria-label="menu"
@@ -154,8 +154,7 @@ class ThemeApp extends Component {
                                         </IconButton>
                                         <ReactSVG src="logo_white.svg" className="logo-max-width p-0 m-3"/>
                                         <IconButton edge="start" color="inherit" aria-label="menu">
-                                            <ReactSVG src={require('../assets/me_active.svg')}
-                                                      className="logo-max-width p-0 m-0"/>
+                                            <ReactSVG src={require('../assets/me_active.svg')} beforeInjection={(svg) => {svg.setAttribute('style', 'width: 32px; height: 32px;')}} className="logo-max-width p-0 m-0"/>
                                         </IconButton>
                                     </Toolbar>
                                 </AppBar>
@@ -166,7 +165,7 @@ class ThemeApp extends Component {
                                 >
                                     <SideAppBar/>
                                 </Drawer>
-                            </Hidden>}
+                            </Hidden>
                             <div className="d-flex flex-row">
                                 <Hidden xsDown>
                                     <SideAppBar/>
