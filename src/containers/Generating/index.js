@@ -60,19 +60,19 @@ class Generating extends Component {
     if (isWaiting) {
       this.timer = setTimeout(this.tick, 3000);
     }
-    this.setState({ progress: Math.min(this.state.progress + 5, 99) });
+    this.setState({ progress: this.state.progress + 10 });
   };
 
   componentWillUnmount() {}
+
   textInput = (e) => {
     this.setState({
       message: e.target.value,
       curRemainingLen: 140 - e.target.value.length,
     });
   };
-
   renderContent() {
-    const { name, email, message } = this.state;
+    const { name, email, message, curRemainingLen } = this.state;
     const { isWaiting } = this.props;
     return (
       <div className="d-flex flex-column flex-fill">
@@ -114,7 +114,7 @@ class Generating extends Component {
           multiline
           rows={5}
           disabled={isWaiting}
-          onChange={(e) => this.setState({ message: e.target.value })}
+          onChange={this.textInput}
           placeholder="Please enter your email here"
           inputProps={{ maxLength: 140 }}
         />
