@@ -13,6 +13,8 @@ import {
 import { Progress } from "reactstrap";
 import history from "../../routes/history";
 
+const MAX_CHARS = 140;
+
 class Generating extends Component {
   constructor(props, context) {
     super(props, context);
@@ -25,7 +27,7 @@ class Generating extends Component {
       email: "",
       message: "",
       progress: 0,
-      curRemainingLen: 20,
+      curRemainingLen: MAX_CHARS,
     };
   }
 
@@ -68,7 +70,7 @@ class Generating extends Component {
   textInput = (e) => {
     this.setState({
       message: e.target.value,
-      curRemainingLen: 20 - e.target.value.length,
+      curRemainingLen: MAX_CHARS - e.target.value.length,
     });
   };
   renderContent() {
