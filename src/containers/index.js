@@ -10,6 +10,7 @@ import DateFnsUtils from "@date-io/date-fns";
 import RoutePublic from "../compnents/RoutePublic";
 import Home from "./Home";
 import Upload from "./Upload";
+import UploadImage from "./UploadImage";
 import Generating from "./Generating";
 import Inventory from "./Inventory";
 import Hello from "./Hello";
@@ -320,6 +321,12 @@ class ThemeApp extends Component {
                         path="/upload"
                         exact
                         component={Upload}
+                      />
+                      <RoutePrivate
+                        isAuthenticated={true}
+                        path="/upload-image"
+                        exact
+                        component={UploadImage}
                       />
                       <RoutePrivate
                         isAuthenticated={!!authToken}
