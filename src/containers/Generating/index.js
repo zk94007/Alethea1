@@ -73,6 +73,7 @@ class Generating extends Component {
       curRemainingLen: MAX_CHARS - e.target.value.length,
     });
   };
+  
   renderContent() {
     const { name, email, message, curRemainingLen } = this.state;
     const { isWaiting } = this.props;
@@ -111,16 +112,16 @@ class Generating extends Component {
         <TextField
           id="email-input"
           variant="outlined"
-          className="mx-xl-5 mx-lg-4 mx-md-3 mx-sm-5 mb-3 mb-sm-4 mx-3"
+          className="mx-xl-5 mx-lg-4 mx-md-3 mx-sm-5 mb-1 mb-sm-2 mx-3"
           value={message}
           multiline
           rows={5}
           disabled={isWaiting}
           onChange={this.textInput}
           placeholder="Please enter your email here"
-          inputProps={{ maxLength: 140 }}
+          inputProps={{ maxLength: MAX_CHARS }}
         />
-        <label className="mx-xl-5 mx-lg-4 mx-md-3 mx-sm-5 mx-3 text-right font-weight-small">
+        <label className="mr-xl-5 mr-lg-4 mr-md-3 mr-sm-5 mr-3 text-right small">
           {curRemainingLen} characters remained
         </label>
       </div>
