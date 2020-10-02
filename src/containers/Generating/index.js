@@ -118,7 +118,7 @@ class Generating extends Component {
           disabled={isWaiting}
           onChange={this.textInput}
           placeholder="Please enter your email here"
-          inputProps={{ maxLength: 20 }}
+          inputProps={{ maxLength: MAX_CHARS }}
         />
         <label className="mx-xl-5 mx-lg-4 mx-md-3 mx-sm-5 mx-3 text-right font-weight-small">
           {curRemainingLen} characters remained
