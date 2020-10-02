@@ -69,9 +69,7 @@ export default class Upload extends Component {
                     </div>
                     <div className="img-container">
                       <img
-                        src={
-                          "https://wav2lip.s3.us-east-2.amazonaws.com/inventory-1.png"
-                        }
+                        src={require("../../assets/face1.png")}
                         alt={"Image"}
                         className="item-image h-100 object-fit"
                       />
@@ -150,9 +148,7 @@ export default class Upload extends Component {
                     </div>
                     <div className="img-container">
                       <img
-                        src={
-                          "https://wav2lip.s3.us-east-2.amazonaws.com/inventory-1.png"
-                        }
+                        src={require("../../assets/face1.png")}
                         alt={"Image"}
                         className="item-image h-100 object-fit"
                       />
