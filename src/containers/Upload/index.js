@@ -71,7 +71,7 @@ export default class Upload extends Component {
                       <img
                         src={require("../../assets/face1.png")}
                         alt={"Image"}
-                        className="item-image h-100 object-fit"
+                        className="content-image h-100 object-fit"
                       />
                       <div className="item-middle" />
                     </div>
@@ -82,28 +82,28 @@ export default class Upload extends Component {
                         className="mr-2"
                         src={require("../../assets/stright_face.svg")}
                       />
-                      <label className="mb-0">Looking Stright</label>
+                      <label className="item-label">Looking Stright</label>
                     </div>
                     <div className="svg-container">
                       <ReactSVG
                         className="mr-2"
                         src={require("../../assets/no-smile.svg")}
                       />
-                      <label className="mb-0">No Smiles</label>
+                      <label className="item-label">No Smiles</label>
                     </div>
                     <div className="svg-container">
                       <ReactSVG
                         className="mr-2"
                         src={require("../../assets/face_visible.svg")}
                       />
-                      <label className="mb-0">Full face visibility</label>
+                      <label className="item-label">Full face visibility</label>
                     </div>
                     <div className="svg-container">
                       <ReactSVG
                         className="mr-2"
                         src={require("../../assets/upper_body.svg")}
                       />
-                      <label className="mb-0">Show upper body</label>
+                      <label className="item-label">Show upper body</label>
                     </div>
                   </div>
                 </div>
@@ -139,8 +139,6 @@ export default class Upload extends Component {
                   Please upload an image that matches the description of a
                   headshot, or passport photo.
                 </h5>
-                {/*<div className="horizontal-separator w-100" />*/}
-                {/*{this.renderScroll()}*/}
                 <div className="content-container">
                   <div className="item-container">
                     <div className="text-center item-header">
@@ -150,39 +148,39 @@ export default class Upload extends Component {
                       <img
                         src={require("../../assets/face1.png")}
                         alt={"Image"}
-                        className="item-image h-100 object-fit"
+                        className="content-image h-100 object-fit"
                       />
                       <div className="item-middle" />
                     </div>
                   </div>
-                  <div className="desc-container">
+                  <div className="desc-container mr-2">
                     <div className="svg-container">
                       <ReactSVG
                         className="mr-2"
                         src={require("../../assets/stright_face.svg")}
                       />
-                      <label className="mb-0">Looking Stright</label>
+                      <label className="item-label">Looking Stright</label>
                     </div>
                     <div className="svg-container">
                       <ReactSVG
                         className="mr-2"
                         src={require("../../assets/no-smile.svg")}
                       />
-                      <label className="mb-0">No Smiles</label>
+                      <label className="item-label">No Smiles</label>
                     </div>
                     <div className="svg-container">
                       <ReactSVG
                         className="mr-2"
                         src={require("../../assets/face_visible.svg")}
                       />
-                      <label className="mb-0">Full face visibility</label>
+                      <label className="item-label">Full face visibility</label>
                     </div>
                     <div className="svg-container">
                       <ReactSVG
                         className="mr-2"
                         src={require("../../assets/upper_body.svg")}
                       />
-                      <label className="mb-0">Show upper body</label>
+                      <label className="item-label">Show upper body</label>
                     </div>
                   </div>
                 </div>
@@ -193,20 +191,7 @@ export default class Upload extends Component {
                       enableMouseEvents
                       slideClassName="px-2"
                       style={{ paddingRight: 32, paddingLeft: 32 }}
-                    >
-                      {/* {INVENTORIES.map((e, n) => (
-                        <InventoryItem
-                          onClick={() => this.setState({ selectedIndex: e })}
-                          key={n}
-                          index={e}
-                          isActive={
-                            selectedIndex === null ? null : selectedIndex === e
-                          }
-                          name={e.name}
-                          src={e.imageSrc}
-                        />
-                      ))} */}
-                    </SwipeableViews>
+                    ></SwipeableViews>
                   </div>
                 </div>
               </div>

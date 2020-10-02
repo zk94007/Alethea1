@@ -48,7 +48,7 @@
   background-color: #1f103b;
 }
 
-.item-image {
+.content-image {
   display: block;
   width: 100%;
   height: auto;
@@ -57,4 +57,9 @@
   left: 0;
   bottom: 0;
   right: 0;
+}
+
+.item-label {
+  margin-bottom: 0;
+  line-height: 20px;
 }
