@@ -82,28 +82,28 @@ export default class Upload extends Component {
                         className="mr-2"
                         src={require("../../assets/stright_face.svg")}
                       />
-                      <label>Looking Stright</label>
+                      <label className="mb-0">Looking Stright</label>
                     </div>
                     <div className="svg-container">
                       <ReactSVG
                         className="mr-2"
                         src={require("../../assets/no-smile.svg")}
                       />
-                      <label>No Smiles</label>
+                      <label className="mb-0">No Smiles</label>
                     </div>
                     <div className="svg-container">
                       <ReactSVG
                         className="mr-2"
                         src={require("../../assets/face_visible.svg")}
                       />
-                      <label>Full face visibility</label>
+                      <label className="mb-0">Full face visibility</label>
                     </div>
                     <div className="svg-container">
                       <ReactSVG
                         className="mr-2"
                         src={require("../../assets/upper_body.svg")}
                       />
-                      <label>Show upper body</label>
+                      <label className="mb-0">Show upper body</label>
                     </div>
                   </div>
                 </div>
@@ -161,28 +161,28 @@ export default class Upload extends Component {
                         className="mr-2"
                         src={require("../../assets/stright_face.svg")}
                       />
-                      <label>Looking Stright</label>
+                      <label className="mb-0">Looking Stright</label>
                     </div>
                     <div className="svg-container">
                       <ReactSVG
                         className="mr-2"
                         src={require("../../assets/no-smile.svg")}
                       />
-                      <label>No Smiles</label>
+                      <label className="mb-0">No Smiles</label>
                     </div>
                     <div className="svg-container">
                       <ReactSVG
                         className="mr-2"
                         src={require("../../assets/face_visible.svg")}
                       />
-                      <label>Full face visibility</label>
+                      <label className="mb-0">Full face visibility</label>
                     </div>
                     <div className="svg-container">
                       <ReactSVG
                         className="mr-2"
                         src={require("../../assets/upper_body.svg")}
                       />
-                      <label>Show upper body</label>
+                      <label className="mb-0">Show upper body</label>
                     </div>
                   </div>
                 </div>
