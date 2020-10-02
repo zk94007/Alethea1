@@ -52,7 +52,7 @@ export default class Home extends Component {
                     2000,
                   ]}
                   loop={Infinity}
-                  wrapper="h1"
+                  wrapper="h3"
                 />
                 <h5 className="gray-color text-center mt-2 mb-3 mx-xl-5 mx-lg-4 mx-md-3 mx-sm-5">
                   We let you generate AI-powered Avatars that can be featured in
@@ -105,7 +105,7 @@ export default class Home extends Component {
                   size="medium"
                   color="primary"
                   className="rounded-pill customShadow pl-5 pr-5"
-                  onClick={() => history.push("/inventory")}
+                  onClick={() => history.push("/avatars")}
                 >
                   Create
                 </Button>
@@ -128,7 +128,7 @@ export default class Home extends Component {
                     2000,
                   ]}
                   loop={Infinity}
-                  wrapper="h1"
+                  wrapper="h3"
                 />
                 <h5 className="gray-color text-center mt-2">
                   We let you generate AI-powered

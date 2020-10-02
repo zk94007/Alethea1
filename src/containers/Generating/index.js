@@ -32,14 +32,14 @@ class Generating extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.audioKey != this.props.audioKey && this.props.videoKey) {
+    if (prevProps.audioKey !== this.props.audioKey && this.props.videoKey) {
       const {
         actions: { requestGetResult },
       } = this.props;
       requestGetResult(this.props.audioKey, this.props.videoKey);
     }
 
-    if (this.props.audioKey && prevProps.jobId != this.props.jobId) {
+    if (this.props.audioKey && prevProps.jobId !== this.props.jobId) {
       this.timer = setTimeout(this.tick, 3000);
     }
   }

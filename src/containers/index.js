@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { jssPreset, StylesProvider, ThemeProvider } from "@material-ui/styles";
 import { create } from "jss";
@@ -14,11 +14,8 @@ import UploadImage from "./UploadImage";
 import Generating from "./Generating";
 import Inventory from "./Inventory";
 import Hello from "./Hello";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {
   AppBar,
-  Box,
-  Container,
   CssBaseline,
   Drawer,
   Hidden,
@@ -65,6 +62,13 @@ class ThemeApp extends Component {
         hint: "#1214274B",
         disabled: "#71727D",
       },
+      action: {
+        disabledBackground: "#71727D",
+        disabled: "rgba(255, 255, 255, 0.5)",
+      },
+      background: {
+        default: "#3B4148",
+      },
     },
     overrides: {
       MuiButton: {
@@ -75,6 +79,18 @@ class ThemeApp extends Component {
           lineHeight: 1.5,
           padding: "6px 32px",
           borderRadius: 100,
+          "&$disabled": {
+            background: "none",
+          },
+        },
+        sizeLarge: {
+          height: 54,
+          fontSize: 20,
+          fontWeight: 500,
+          maxWidth: 280,
+        },
+        contained: {
+          boxShadow: "none",
         },
         palette: {
           type: "dark", //prefersDarkMode ? 'dark' : 'light',
@@ -132,25 +148,6 @@ class ThemeApp extends Component {
               padding: "14.4px 14px",
             },
           },
-          MuiMobileStepper: {
-            root: {
-              background: "#121427",
-            },
-            dots: {
-              backgroundColor: "transparent",
-            },
-            dot: {
-              margin: "0 4px",
-              width: 8,
-              height: 8,
-              border: "2px solid #121427",
-              backgroundColor: "white",
-            },
-            dotActive: {
-              border: "2px solid white",
-              backgroundColor: "#3F4CC9",
-            },
-          },
           MuiAppBar: {
             root: {
               height: 56,
@@ -189,21 +186,25 @@ class ThemeApp extends Component {
       },
       MuiMobileStepper: {
         root: {
-          background: "#121427",
+          background: "transparent",
         },
         dots: {
           backgroundColor: "transparent",
         },
         dot: {
-          margin: "0 4px",
-          width: 8,
-          height: 8,
-          border: "2px solid #121427",
+          margin: "2px 6px",
+          width: 4,
+          height: 4,
+          border: "2px solid transparent",
           backgroundColor: "white",
         },
         dotActive: {
+          margin: "0 4px",
+          width: 8,
+          height: 8,
           border: "2px solid white",
-          backgroundColor: "#3F4CC9",
+          background:
+            "linear-gradient(89.02deg, #6226D9 0.89%, #8C52FF 100%), #3F4CC9",
         },
       },
       MuiAppBar: {
@@ -227,6 +228,17 @@ class ThemeApp extends Component {
       MuiBackdrop: {
         root: {
           top: 56,
+        },
+      },
+      MuiAccordionSummary: {
+        root: {
+          padding: 0,
+        },
+        content: {
+          margin: "0 !important",
+        },
+        expanded: {
+          margin: 0,
         },
       },
     },
@@ -292,8 +304,8 @@ class ThemeApp extends Component {
                 <div className="flex-fill">
                   <Router history={history}>
                     <Switch>
-                      <RoutePrivate
-                        isAuthenticated={!!authToken}
+                      <RoutePublic
+                        isAuthenticated={false}
                         path="/"
                         exact
                         component={Home}
@@ -310,8 +322,8 @@ class ThemeApp extends Component {
                         exact
                         component={SignUp}
                       />
-                      <RoutePrivate
-                        isAuthenticated={!!authToken}
+                      <RoutePublic
+                        isAuthenticated={false}
                         path="/avatars"
                         exact
                         component={AIAvatars}
@@ -322,8 +334,8 @@ class ThemeApp extends Component {
                         exact
                         component={Upload}
                       />
-                      <RoutePrivate
-                        isAuthenticated={true}
+                      <RoutePublic
+                        isAuthenticated={false}
                         path="/upload-image"
                         exact
                         component={UploadImage}

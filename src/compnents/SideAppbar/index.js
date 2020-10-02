@@ -17,7 +17,7 @@ export default function SideAppBar() {
       icon: require("../../assets/ai_avatar.svg"),
       iconActive: require("../../assets/ai_avatar_active.svg"),
       title: "AI Avatars",
-      action: () => history.push("/inventory"),
+      action: () => history.push("/avatars"),
       location: "/inventory",
     },
     {

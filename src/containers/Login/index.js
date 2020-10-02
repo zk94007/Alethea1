@@ -36,22 +36,6 @@ class Login extends Component {
     }
   }
 
-  onSubmit() {
-    if (this.validator.allValid()) {
-      const {
-        actions: { loginRequest },
-      } = this.props;
-      const { username, password } = this.state;
-      loginRequest({
-        email: username,
-        password: password,
-      });
-    } else {
-      this.validator.showMessages();
-      this.forceUpdate();
-    }
-  }
-
   render() {
     const { username, password } = this.state;
     const { errors } = this.props;
