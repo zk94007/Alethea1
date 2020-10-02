@@ -9,6 +9,32 @@ import history from "../../routes/history";
 import Dropzone from "react-dropzone";
 import "./styles.scss";
 
+const ImgSettingItem = ({ imageSrc, name }) => (
+  <div className="svg-container">
+    <ReactSVG className="mr-2" src={imageSrc} />
+    <label className="item-label">{name}</label>
+  </div>
+);
+
+const IMGSETTINGS = [
+  {
+    name: "Looking Stright",
+    imageSrc: require("../../assets/stright_face.svg"),
+  },
+  {
+    name: "No Smiles",
+    imageSrc: require("../../assets/no-smile.svg"),
+  },
+  {
+    name: "Full face visibility",
+    imageSrc: require("../../assets/face_visible.svg"),
+  },
+  {
+    name: "Show upper body",
+    imageSrc: require("../../assets/upper_body.svg"),
+  },
+];
+
 export default class Upload extends Component {
   constructor(props, context) {
     super(props, context);
@@ -77,34 +103,13 @@ export default class Upload extends Component {
                     </div>
                   </div>
                   <div className="desc-container">
-                    <div className="svg-container">
-                      <ReactSVG
-                        className="mr-2"
-                        src={require("../../assets/stright_face.svg")}
+                    {IMGSETTINGS.map((e, n) => (
+                      <ImgSettingItem
+                        key={n}
+                        name={e.name}
+                        imageSrc={e.imageSrc}
                       />
-                      <label className="item-label">Looking Stright</label>
-                    </div>
-                    <div className="svg-container">
-                      <ReactSVG
-                        className="mr-2"
-                        src={require("../../assets/no-smile.svg")}
-                      />
-                      <label className="item-label">No Smiles</label>
-                    </div>
-                    <div className="svg-container">
-                      <ReactSVG
-                        className="mr-2"
-                        src={require("../../assets/face_visible.svg")}
-                      />
-                      <label className="item-label">Full face visibility</label>
-                    </div>
-                    <div className="svg-container">
-                      <ReactSVG
-                        className="mr-2"
-                        src={require("../../assets/upper_body.svg")}
-                      />
-                      <label className="item-label">Show upper body</label>
-                    </div>
+                    ))}
                   </div>
                 </div>
                 <div className="w-100 px-xl-5 px-lg-4 px-md-3 px-sm-5 d-flex flex-fill align-items-end">
@@ -112,7 +117,7 @@ export default class Upload extends Component {
                     variant="contained"
                     color="primary"
                     disabled={selectedIndex === null}
-                    className="mb-5 w-100"
+                    className="mb-5 w-100 rounded-pill customShadow pl-5 pr-5"
                     onClick={() => this.onContinue()}
                   >
                     Upload Image
@@ -154,34 +159,13 @@ export default class Upload extends Component {
                     </div>
                   </div>
                   <div className="desc-container mr-2">
-                    <div className="svg-container">
-                      <ReactSVG
-                        className="mr-2"
-                        src={require("../../assets/stright_face.svg")}
+                    {IMGSETTINGS.map((e, n) => (
+                      <ImgSettingItem
+                        key={n}
+                        name={e.name}
+                        imageSrc={e.imageSrc}
                       />
-                      <label className="item-label">Looking Stright</label>
-                    </div>
-                    <div className="svg-container">
-                      <ReactSVG
-                        className="mr-2"
-                        src={require("../../assets/no-smile.svg")}
-                      />
-                      <label className="item-label">No Smiles</label>
-                    </div>
-                    <div className="svg-container">
-                      <ReactSVG
-                        className="mr-2"
-                        src={require("../../assets/face_visible.svg")}
-                      />
-                      <label className="item-label">Full face visibility</label>
-                    </div>
-                    <div className="svg-container">
-                      <ReactSVG
-                        className="mr-2"
-                        src={require("../../assets/upper_body.svg")}
-                      />
-                      <label className="item-label">Show upper body</label>
-                    </div>
+                    ))}
                   </div>
                 </div>
 
